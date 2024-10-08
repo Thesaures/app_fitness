@@ -1,0 +1,104 @@
+import { StyleSheet } from "react-native";
+import { Colors } from "../../constants/Colors";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor:Colors.bg,
+        alignItems:'center',
+        justifyContent:'center',
+        marginHorizontal:30,
+        marginTop:20,
+        // flex:1,
+        // height:"100%"
+    },
+    firstLine:{
+        fontSize:20
+    },
+    secondLine:{
+        fontSize:23,
+        fontWeight:'600',
+        marginBottom:hp('.8%')
+    },
+    name:{
+        flexDirection:'row',
+        backgroundColor:Colors.inputbg,
+        borderRadius:10,
+        padding:15,
+        alignItems:'center',
+        marginTop:10,
+        marginBottom:12
+    },
+    textIput:{
+        flex:1,
+        marginLeft:10
+    },
+    check:{
+        height:13,
+        width:13,
+        borderWidth:1,
+        padding:2
+    },
+    checkLine:{
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    button:{
+        backgroundColor:Colors.button,
+        padding:25,
+        paddingHorizontal:'35%',
+        borderRadius:40,
+        marginTop:20
+    },
+    buttonText:{
+        color:'white',
+        fontWeight:'500',
+        fontSize:20
+        },
+    textUnder:{
+       flexDirection:'row',
+       alignItems:'center',
+       marginVertical:14
+    },
+    line:{
+        flex:1,
+        borderWidth:.5,
+        height:0
+    },
+    or:{
+        flexDirection:'row',
+       alignItems:'center',
+        marginHorizontal:10
+    },
+    o:{
+        fontSize:20
+    },
+    r:{
+        fontSize:18
+    },
+    media:{
+        flexDirection:'row',
+        marginVertical:8
+    },
+    singleMedia:{
+        borderWidth:.4,
+        marginHorizontal:20,
+        padding:10,
+        borderRadius:10
+    },
+    login:{
+       flexDirection:'row',
+       marginVertical:8
+    },
+    loginText:{
+        color:'#C456F3'
+    },
+    checkText:{
+        marginLeft:10,
+        flex:1,
+        color:'grey',
+        marginTop:20
+    }
+})
+
+export default styles;

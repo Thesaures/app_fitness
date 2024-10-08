@@ -1,0 +1,9 @@
+{
+    "great":"Let's complete your profile.",
+    "name" : "This will help us learn more about you.",
+    "gender" : "Choose gender",
+    "dob": "Date of Birth",
+    "weight" : "Weight",
+    "height" : "Height",
+    "next" : "Next"
+}

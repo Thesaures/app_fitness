@@ -1,118 +1,64 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+// import { View,Text, Button, Alert } from "react-native"
+// import { GoogleSignin } from '@react-native-google-signin/google-signin';
+// import { useEffect } from "react";
+// import auth from '@react-native-firebase/auth';
+// const App =()=>{
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+//   useEffect(()=>{
+//     GoogleSignin.configure({
+//       webClientId: '211694041760-6blhmr6gmc0fe0ghkbqc0155pdf38brp.apps.googleusercontent.com',
+//     });
+//   },[]);
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+//   async function onGoogleButtonPress() {
+//     // Check if your device supports Google Play
+//     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+//     // Get the users ID token
+//     const idToken = await GoogleSignin.signIn();
+//     console.log('token : ',idToken);
+//     Alert.alert('login succses');
+//     // Create a Google credential with the token
+//     // const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+  
+//     // Sign-in the user with the credential
+//     // return auth().signInWithCredential(googleCredential);
+//   }
+//   return(
+//     <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+//       <Text>
+//         hello this is login 
+//       </Text>
+//       <Button title="google" onPress={onGoogleButtonPress}/>
+   
+//     </View>
+//   )
+// }
+// export default App;
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+
+/* eslint-disable react/react-in-jsx-scope */
+
+
+import Navigation from './src/Navigations';
+import {store,persistor} from './src/Store/Index';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { View } from 'react-native';
+export default function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <View style={{flex:1}}>
+           <Navigation/>
+        </View>          
+       </PersistGate>
+     </Provider>
   );
 }
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
-export default App;
+
